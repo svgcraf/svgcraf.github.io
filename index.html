@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="description" content="CDx">
+  <meta property="og:title" content="SVGCraft"/>
+  <meta property="og:description" content="Primitive-based Explanations for Text Guided Sketch Synthesis"/>
+  <meta property="og:url" content="clipdrawx.github.io"/>
+
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="SVGCraft,Sketch,Synthesis,Explainability,Explainable Sketching">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="icon" type="image/x-icon" href="static/images/CDx-Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    <title>SVGCraft</title>
+    
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title">SVGCraft: Beyond Single Object Text-to-SVG
+              Synthesis with Comprehensive Canvas Layout</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://ayanban011.github.io/" target="_blank">Ayan Banerjee</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://nityanandmathur.live/" target="_blank">Nityanand Mathur</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=92pWl-AAAAAJ&hl=en" target="_blank">Josep Lladós</a><sup>1</sup> ,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.isical.ac.in/~umapada/" target="_blank">Umapada Pal</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://sites.google.com/site/2adutta/" target="_blank">Anjan Dutta</a><sup>4</sup>
+                  </span>
+                  </div>  
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Computer Vision Center, UAB; <sup>2</sup>IIIT Guwahati; <sup>3</sup>CVPR Unit, ISI Kolkata; <sup>4</sup>University of Surrey</span>
+                  </div>
+                  
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2404.00412" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper (soon)</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/ayanban011/SVGCraft" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Soon)</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1DkBmuMjuhdTLgRHLTpQtQepyd17J_OkP/view?usp=sharing" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>CVPR AI Art Gallery (Accepted)</span>
+                </a>
+
+                <span class="link-block">
+                  <a href="#" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-play"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls loop muted height="100%">
+        <!-- Your video here -->
+        <source src="static/images/svgcraft.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <div class="content has-text-justified">
+        <b>A brief overview of SVGCraft:</b> Our method, SVGCraft synthesizes vector sketches conditioned on an input text prompt through layout guidance generated via an LLM.
+        </div>
+      </h2> 
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+<hr class="divider" />
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Concise Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generating VectorArt from text prompts is a challenging vision task, requiring diverse yet realistic depictions of the seen as well as unseen entities. 
+            However, existing research has been mostly limited to the generation of single objects, rather than comprehensive scenes comprising multiple elements. 
+            In response, this work introduces SVGCraft, a novel end-to-end framework for the creation of vector graphics depicting entire scenes from textual descriptions. 
+            Utilizing a pre-trained LLM for layout generation from text prompts, this framework introduces a technique for producing masked latents in specified bounding boxes for accurate object placement. 
+            It introduces a fusion mechanism for integrating attention maps and employs a diffusion U-Net for coherent composition, speeding up the drawing process. The resulting SVG is optimized using a pre-trained encoder and LPIPS loss with opacity modulation to maximize similarity. Additionally, this work explores the potential of primitive shapes in facilitating canvas completion in constrained environments. 
+            Through both qualitative and quantitative assessments, SVGCraft is demonstrated to surpass prior works in abstraction, recognizability, and detail, as evidenced by its performance metrics (CLIP-T: 0.4563, Cosine Similarity: 0.6342, Confusion: 0.66, Aesthetic: 6.7832).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<hr class="divider">
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">From Prose to Portraits: Mechanism of Sketch Synthesis</h2>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column has-text-centered">
+          <img id="network" src="static/images/SketchCraft_method.svg"/>
+          <div class="content has-text-justified">
+          SVGCraft employs an LLM as a layout generator to create layouts with "background prompt", "grounding object" and their corresponding bounding boxes, generating masked latents for each box with controlled attention for accurate object placement.
+          These latents are fused to initialize the SVG canvas and used by a diffusion U-Net for coherent image generation \( \mathcal{I}_m \) that aligns with the layout. The final canvas is obtained via maximizing its similarity between \( \mathcal{I}_r \) and \( \mathcal{R}_d (\theta) \) using LPIPS loss and opacity control. <br>
+          This opacity control aims to replicate the iterative approach of traditional human sketching by starting with a low opacity value for the Bezier curves. The system then increases the opacity of certain strokes based on relevance and significance provided by the semantic guidance through a loss function \( \mathcal{L}_{sop} \) as defined in
+          \( \mathcal{L}_\text{sop} =  \left|1 - \dfrac{\max(A_s \odot \mathcal{R}_d(\theta))}{\max(A_s \odot \mathcal{I}_r)}\right| \). The system updates the opacity value of primitives in each backward pass through gradient descent to mirror the artistic method of intensifying strokes. The final optimization has been defined in the following equation: 
+          <br>
+          <div style="border: 1px solid black; padding: 1px 10px; margin: 4px auto; display: table;">
+            $$\mathcal{L}_\text{synth} = \text{LPIPS}(\mathcal{I}_r, R_d (\theta)) + \lambda_\text{sop} \mathcal{L}_\text{sop}$$
+          </div>
+          </div>
+      </div>      
+  </div>
+  </section>
+
+<hr class="divider" />  
+<section class="section">
+  <div class="container is-widescreen" id="gallery">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Unraveling Textual Descriptions into Artistic Creations</h2><br>
+    </div>
+    <div class="container is-max-desktop is-centered has-text-centered">
+      <div class="gallery">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/river.png" alt="spaceship"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“In a village[..]” <span class="tooltip-text">“In a village, a river flows between two men, each standing on opposite banks”</span></h6>
+        </div>
+
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/car.png" alt="astronaut"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A car is [..]” <span class="tooltip-text">“A car is parked on the road beside a river”</span></h6>
+        </div>
+
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/stop.png" alt="camp"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A stop sign [..]” <span class="tooltip-text">“A stop sign is in grass behind a fence”</span></h6>
+        </div>        
+        
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/umbrella.png" alt="kitchen"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A man and [..]”<span class="tooltip-text">“A man and a woman stroll in the rain, sharing an umbrella, with the woman holding a bag”</span></h6>
+        </div>
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/dog.png" alt="pond"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A dog chasing [..]”<span class="tooltip-text">“A dog chasing a frisbee on the grass”</span></h6>
+        </div>
+        
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/bus.png" alt="dolphin"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“Four bicycles parked [..]”<span class="tooltip-text">“Four bicycles parked beside a bus”</span></h6>
+        </div>
+
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/giraffe.png" alt="dungeon"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“Two giraffes and [..]”<span class="tooltip-text">“Two giraffes and three elephants in a forest”</span></h6>
+        </div>
+
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/bicycle.png" alt="piano"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A red bicycle [..]”<span class="tooltip-text">“A red bicycle is at the left of a woman and a blue bicycle towards right of a woman.”</span></h6>
+        </div>
+        
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/traffic.png" alt="submarine"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“A woman is [..]”<span class="tooltip-text">“A woman is riding her bike down the street in front of traffic”</span></h6>
+        </div>
+        
+        <div class="captioned_video">
+          <div class="inner_gallery">
+            <img class="gallery_img under grid_r_1 grid_c_1 img-border" src="static/video/batman.png" alt="motorcycle"/>
+          </div>  
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom">“Batman and Superman [..]”<span class="tooltip-text">“Batman and Superman in a battle scene, with smoke and explosions in the background.”</span></h6>
+        </div>
+
+      </div>
+      <!--<div class="more-results">
+        <p class="more-results-text">For more results, please visit <a href="#", target="_blank">gallery!</a></p>
+      </div>-->
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title">From Doodles to Details: Evolution of Sketch Synthesis</h2>
+    </div>
+      <div class="content has-text-justified"></div>
+      SVGCraft synthesizes aesthetic vector graphics with Bezier curves and simple primitives via iterative optimization, aiming to explore their evolution under projective/affine transformation to obtain the final SVG as demonstrated in the following figure. Here, densely initialized strokes with per-box mask latent attention (see iter. 1 in the following figure) are going through the iterative canvas \( \mathcal{C} \) optimization via \( \mathcal{L}_\text{synth} \) in order to obtain the final SVG.<br>
+      <br>
+    </div><br>
+    <div class="container is-max-desktop is-centered has-text-centered">
+      <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2 img-border" src="static/explain/Experiments.svg" alt="motorcycle"/>
+          </div>  
+          <!-- <h6 class="caption">“A standing motorcycle”</h6> -->
+          “Two <mark>giraffes</mark> and three <mark>elephants</mark> in a forest”
+        </div>
+
+        <!--<div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2 img-border" src="static/explain/farm.png" alt="farm"/>
+          </div>  
+          “A peaceful afternoon at the <mark>farm</mark> sketch”
+        </div>-->
+
+      <!--</div>
+      <div class="more-results">
+        <p class="more-results-text">For more results, please visit <a href="explain.html", target="_blank">Explainable Sketch Synthesis!</a></p>
+      </div>
+    </div>
+  </div>-->
+</section>
+
+<!--
+<hr class="divider">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Clearing the Clutter: Patch-based Initialization</h2>
+    </div>
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls loop muted height="100%">
+        
+        <source src="static/images/Patchification.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <div class="content has-text-justified">
+      Placing different primitives at a single location is problematic, as it may result in clutter due to high point density, leading to uneven primitive distribution and messy sketches. To address this, our CLIPDrawX introduces primitives in fixed ranges or <em>patches</em>, representing all points within, rather than at precise attention map locations. It divides a <mark>\(224 \times 224\)</mark> canvas into patches of <mark>\(32 \times 32\)</mark>. 
+        </div>
+    </h2>
+    </div>
+  </div>
+</section>
+
+
+<hr class="divider">
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Fundamental Finesse: The Debut of Primitive-level Dropout</h2>
+      <div class="content has-text-justified">
+      Primitive-level dropout enhances the utilization of primitive shapes. 
+
+      It facilitates the optimization process in a way that forces every primitive to independently encode some specific concept in the sketch. As a result, the number of noisy strokes in the sketch, that do not contribute towards depicting anything meaningful, is reduced.
+      
+      Moreover, PLD expedites convergence by reducing the number of steps required for structure creation, thanks to its ability to promptly detect relevant strokes.    <div class="container is-max-desktop is-centered has-text-centered">
+      </div>
+        <br>
+        <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/dropout_ablation.jpg" alt="dropout"/>
+          </div>  
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Gentle Strokes: Sketching with Diminished Opacity</h2>
+      <div class="content has-text-justified">
+      In traditional human sketching, artists often begin with a light outline or faint layout, serving as a foundation for the artwork. This initial phase sets the broader structure and composition. As the artwork advances, artists intensify strokes, especially focusing on crucial elements to make them prominent, ensuring each stroke adds value to the overall piece. Drawing a parallel to the digital realm, in CLIPDrawX, we have curated a similar methodology. Here, the initialization of primitive shapes starts with a low opacity value, denoted as \(\alpha\). This can be likened to the faint layout artists create. As the system begins its optimization process, based on relevance and significance, the opacity of certain primitives is incrementally increased. This mirrors the artist's method of iteratively intensifying strokes that are deemed crucial to the sketch's integrity.
+      </div>
+      <br>
+        <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/motorcycle.png" alt="opacity"/>
+          </div>
+          “A standing <mark>motorcycle</mark>”
+        </div>
+
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/missile.png" alt="opacity"/>
+          </div>
+          “A <mark>missile</mark> ready to launch”
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section hero">  
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Shades of Creativity: Exploring Sketch Variations</h2>
+        <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/variations.png" alt="var"/>
+          </div>  
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section hero">  
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Count Dynamics: Influence of Primitive Counts</h2>
+        <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/stroke_ablation.png" alt="stroke"/>
+          </div>  
+        </div>
+        <div class="content has-text-justified">
+        Exploring the impact of varying primitive counts for each type within selected patches on sketch outcomes with diverse text prompts in CLIPDrawX.
+      
+        <ul style="margin-top: 0;">
+          <li>Few primitives yield abstract sketches (rows 1-2).</li>
+          <li>Optimal detail emerges with 3-4 primitives (rows 3-4).</li>
+          <li>Excessive counts (row 5) complicate optimization, hindering synthesis.</li>
+        </ul>
+
+        The study recommends deploying 3 primitives per type for efficient synthesis, balancing complexity and resource utilization.
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section hero">  
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">State-of-the-art Comparison</h2>
+      <div class="content has-text-justified">
+      Our CLIPDrawX model is compared with three related methods, including \(\textbf{CLIPDraw}\), which synthesizes CLIP-guided text-to-sketches by optimizing Bezier curves; \(\textbf{BigGAN}\), utilizing a pre-trained BigGAN generator for image production, and \(\textbf{VectorFusion}\), employing a text-conditioned diffusion model for vector sketch creation. We maintain the original settings of all these models to ensure a fair comparison. 
+      As demonstrated below, our CLIPDrawX produces sketches that are noticeably cleaner than those from CLIPDraw, likely due to our method's use of primitive-level dropout and the initialization of primitives at reduced opacity. 
+      The images from BigGAN often lack proper details and appropriate semantics, and the vector sketches from VectorFusion tend to be overly abstract and detail-deficient. 
+      In contrast, our CLIPDrawX consistently delivers clean sketches with accurate details and semantics. 
+      The reduced noise in our sketches is attributed to the minimized control points, learnable opacity for primitives, and primitive-level dropout, thus reducing the need for manual intervention and parameter adjustments. 
+       </div><br>
+        <div class="gallery2">
+        
+        <div class="captioned_video">
+          <div class="inner_gallery2">
+            <img class="gallery2" src="static/images/comparison.png" alt="comp"/>
+          </div>  
+        </div>
+
+      </div>
+      <div class="more-results">
+        <p class="more-results-text">For more results, please visit <a href="SOTA.html", target="_blank">SOTA Comparison!</a></p><br>
+      </div> 
+    </div>
+  </div>
+</section>-->
+
+<hr class="divider">
+<section class="section hero">  
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Final takeaways</h2><br>
+      <div class="content has-text-justified">
+        We introduced the notion of SVG synthesis through optimization which reflects the enumeration and spatial relationship between multiple objects described in a text prompt. To this end, we proposed SVGCraft, an architecture that synthesizes free-hand vector graphics via projective transformations of the B\'{e}zier curves or affine transformation of the primitive shapes leveraging novel techniques such as Layout correction, per box mask latent-based canvas initialization, Semantic aware canvas initialization and so on. All these techniques collectively enhance the model efficiency and output quality by replicating the drawing style of a human. Extensive experiments and ablation studies confirm the model's superiority over existing methods, demonstrating its ability to generate aesthetically pleasing and semantically rich SVGs while maintaining their spatial relationship. However, it is unable to draw human faces properly of the supplementary material), which we will address in our future work.
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <button class="copy-button">Copy</button>
+    <h2 class="title">BibTeX</h2>
+    <pre><code id="bibtex">
+      @article{banerjee2024svgcraft,
+        title={SVGCraft: Beyond Single Object Text-to-SVG Synthesis with Comprehensive Canvas Layout},
+        author={Banerjee, Ayan and Mathur, Nityanand and Llad{\'o}s, Josep and Pal, Umapada and Dutta, Anjan},
+        journal={arXiv preprint arXiv:2404.00412},
+        year={2024}
+      }      
+    </code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+           Page credits: <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
